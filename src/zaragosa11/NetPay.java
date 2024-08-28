@@ -1,5 +1,8 @@
 package zaragosa11;
 
+import java.text.NumberFormat;
+import java.util.Scanner;
+
 public class NetPay {
     
     public void getPay(){
