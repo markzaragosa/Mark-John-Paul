@@ -1,14 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package zaragosa11;
 
-/**
- *
- * @author SCC-COLLEGE
- */
+
 public class Product {
+    int id, sold, stock;
+    double price;
+    String name;
     
+    public void addProduct(int pid, String pname, int psold, int pstock, double pprice){
+    
+        this.id = pid;
+        this.name = pname;
+        this.sold = psold;
+        this.stock = pstock;
+        this.price = pprice;
+    
+    }
+    public void viewProduct(){
+        double profit = this.sold * this.price;
+        String status = (this.stock < 1) ? "Out-of-stock" : "Available";
+        
+        double totalValue = this.stock * this.price;
+        
+        System.out.printf("%-10.d %-10s %-10d &-10d %-10.2f %-10.2f %-10s %-102\n",
+                this.id, this.name, this.stock, this.price, profit, status, totalValue);
+    }
+
+
+
+}
 }
