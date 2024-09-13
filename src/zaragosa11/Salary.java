@@ -1,74 +1,41 @@
-package zaragosa05;
+package zaragosa11;
+
+
 
 import java.util.Scanner;
-public class Salary{
-    
-    class Employee{
-    
-        int id;
-        String name;
-        double rate;
-        double hoursWorked;
-        double grossPay;
-        double deduction;
-        double NetPay;
-        Employee (int id, String name, double rate, double hoursWorked, double deduction){
+
+public class Salary {
+    public void gatherSalaries() {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter number of Employees: ");
+        int numEmployees = input.nextInt();
+        input.nextLine(); 
+
+        for (int i = 0; i < numEmployees; i++) {
+            System.out.println("Enter details for employee " + (i + 1));
+
+            System.out.print("Enter your name: ");
+            String employeeName = input.nextLine();
+            System.out.print("Enter age: ");
+            int employeeAge = input.nextInt();
+            System.out.print("Enter hourly rate: ");
+            double hourlyRate = input.nextDouble();
+            System.out.print("Enter total hours worked: ");
+            double totalHoursWorked = input.nextDouble();
+            System.out.print("Enter total deductions: ");
+            double totalDeductions = input.nextDouble();
+            input.nextLine(); 
+
+            Salaries salaryDetails = new Salaries();
+            salaryDetails.setDetails(employeeName, employeeAge, hourlyRate, totalHoursWorked, totalDeductions);
+        }
+
         
-            this.id = id;
-            this.name = name;
-            this.hoursWorked = hoursWorked;
-            this.grossPay = rate * hoursWorked;
-            this.deduction = deduction;
-            this.NetPay = grossPay - deduction;
-            
-   } 
- }
-  
-  public void Salaries(){
-      Scanner input = new Scanner(System.in);
-      
-      System.out.print("Enter the number of employee: ");
-      int emp = input.nextInt();
-      
-      Employee[]employees = new Employee[emp];
-      
-      for (int i = 0; i <emp; i++){
-          
-          System.out.print("Details of Employee" + (i + i) + ":");
-          
-          System.out.print("ID: ");
-          int id = input.nextInt();
-          
-          System.out.print("Name");
-          String name = input.next();
-          
-          
-          System.out.print("Rate: ");
-          double rate = input.nextDouble();
-          
-          System.out.print("Hours worked: ");
-          double hrs = input.nextDouble();
-          
-          System.out.print("Total deductions");
-          double deduc = input.nextDouble();
-          
-          employees[i] = new Employee (id, name, rate, hrs, deduc);
-          
-          
-}
-      
-      System.out.printf("%-10s %-10s %-10s %-10s %-10s %-10s %-10s\n"
-              ,"ID", "Name", "Rate", "Hours", "Gross", "deduction", "Net Pay");
-                
-  
-      for (Employee e : employees){
-        System.out.printf("%-10d %-10s %-10.2f %-10.2f %-10.2f %-10.2f %-10.2f\n",
-                e.id, e.name, e.rate, e.hoursWorked, e.grossPay, e.deduction, e.NetPay);
-      
+        Salaries.displayTable();
         
-        
-        
+        Salaries.displayTotals();
+        input.close();
     }
-  }      
 }
 

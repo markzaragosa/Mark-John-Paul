@@ -1,31 +1,34 @@
 package zaragosa11;
 
-
 public class Product {
-    int id, sold, stock;
-    double price;
-    String name;
-    
-    public void addProduct(int pid, String pname, int psold, int pstock, double pprice){
-    
-        this.id = pid;
-        this.name = pname;
-        this.sold = psold;
-        this.stock = pstock;
-        this.price = pprice;
-    
-    }
-    public void viewProduct(){
-        double profit = this.sold * this.price;
-        String status = (this.stock < 1) ? "Out-of-stock" : "Available";
-        
-        double totalValue = this.stock * this.price;
-        
-        System.out.printf("%-10.d %-10s %-10d &-10d %-10.2f %-10.2f %-10s %-102\n",
-                this.id, this.name, this.stock, this.price, profit, status, totalValue);
+    int productId;
+    String productName;
+    double productPrice;
+    int stockQty;
+    int soldQty;
+
+    public void setProduct(int id, String name, double price, int stocks, int sold) {
+        this.productId = id;
+        this.productName = name;
+        this.productPrice = price;
+        this.stockQty = stocks;
+        this.soldQty = sold;
     }
 
+    public double calculateProfit() {
+        return productPrice * soldQty;
+    }
 
+    public double calculateTotalValue() {
+        return productPrice * stockQty;
+    }
 
-}
+    public void viewProduct() {
+        double profit = calculateProfit();
+        double totalValue = calculateTotalValue();
+        String availability = (stockQty > 0) ? "Available" : "Out-of-Stocks";
+
+        System.out.printf("| %-5d | %-15s | %-10.2f | %-7d | %-5d | %-10.2f | %-15.2f | %-10s |%n", 
+            productId, productName, productPrice, stockQty, soldQty, profit, totalValue, availability);
+    }
 }

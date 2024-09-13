@@ -7,19 +7,36 @@ public class Zaragosa11 {
 
    
     public static void main(String[] args) {
-        Grades gr = new Grades();
+     
        
-       
-     System.out.printf("%-10s %-10s %-10.2s 5-10.2s %-10.2s %-10.2s %10-2s 5-10s\n",
-             "studentID", "name", "prelim", "midterm", "prefinal", "finalExam", "average", "remarks");  
+      
         
-       gr.addGrades(1001, "Mike",1.0, 1.0, 1.0, 1.0);
-       gr.viewGrades();
-       
-       Grades grl = new Grades();
-       grl.addGrades(1002, "John", 2.0, 1.0, 1.0, 1.0);
-       grl.viewGrades();
+        /*         Grade grade = new Grade();
+        grade.getGrades();
+        */
         
+        /* Account accountManager = new Account();
+        accountManager.getAccounts();
+        */
+        
+        /*
+        Products productsManager = new Products(100);
+        productsManager.inputProducts();
+        productsManager.displayProducts();*/
+        
+        
+        /*    Salary salary = new Salary();
+        salary.gatherSalaries();*/
+        
+       
+       
+        /*        NetPay salaryDetails = new NetPay();
+        salaryDetails.gatherDetails();
+        salaryDetails.displaySlip();
+        */
+       
+       
+       
     }
     
 }

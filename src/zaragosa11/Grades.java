@@ -1,43 +1,60 @@
 package zaragosa11;
 
 public class Grades {
+   
     
-    int studentID;
-    String name;
-    double prelim, midterm, prefinal , finalExam;
-    double average;
-    String remarks;
     
-    public void addGrades(int StudentID, String name, double prelim, double midterm, double prefinal, double FinalExam ){
+    
+    int studentId;
+    String studentName;
+    double prelimGrade;
+    double midtermGrade;
+    double prefiGrade;
+    double finalGrade;
+
+   
+    
+    public void addGrade(int id, String name, double prelim, double midterm, double prefi, double finalGrade) {
+        this.studentId = id;
+        this.studentName = name;
+        this.prelimGrade = prelim;
+        this.midtermGrade = midterm;
+        this.prefiGrade = prefi;
+        this.finalGrade = finalGrade;
+    }
+
+    
+    
+    public double getAverage() {
+        return (prelimGrade + midtermGrade + prefiGrade + finalGrade) / 4;
+    }
+
+    
+    public void viewGrades() {
+      
+        double average = getAverage();
+        String remarks = (average <= 3.0) ? "Passed" : "Failed";
+
         
-        this.studentID = StudentID;
-        this.name = name;
-        this.prelim = prelim;
-        this.midterm = midterm;
-        this.prefinal = prefinal;
-        this.finalExam = finalExam;
-        this.average = (prelim + midterm + prefinal + finalExam)/ 4;
-        this.remarks = (average < 1.5) ? "Passed" : "Failed";
         
-    }    
-    
-    
-   public void viewGrades(){
-       System.out.printf("%-10d %-10s %-10.2f 5-10.2f %-10.2f %-10.2f %10-2f 5-10s\n",
-               this.studentID, this.name, this.prelim, this.midterm, this.prefinal, this.finalExam, this.average, remarks);
+        System.out.println("ID: " + studentId);
+        System.out.println("Name: " + studentName);
+        System.out.println("Prelim: " + prelimGrade);
+        System.out.println("Midterm: " + midtermGrade);
+        System.out.println("Prefi: " + prefiGrade);
+        System.out.println("Final: " + finalGrade);
+        System.out.printf("Average: %.2f%n", average);
+        System.out.println("Remarks: " + remarks);
     }
     
-   public static void  main (String[]args){
-       
-       Grades gr = new Grades();
-       System.out.printf("%-10s %-10s %-10.2s 5-10.2s %-10.2s %-10.2s %10-2s 5-10s\n",
-               "studentID", "name", "prelim", "midterm", "prefinal", "finalExam", "average", "remarks");  
-       
-       gr.addGrades(1001, "Mike",1.0, 1.0, 1.0, 1.0);
-       gr.viewGrades();
-       
-       Grades grl = new Grades();
-       grl.addGrades(1002, "John", 2.0, 1.0, 1.0, 1.0);
-       grl.viewGrades();
-   }
-}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+} 
